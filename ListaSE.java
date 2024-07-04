@@ -43,11 +43,12 @@ public class ListaSE{
     }
 
     public void sort(){
-        //ArrayList sortingList = new ArrayList<Cell>();
-        Cell aux = first;
-        while(aux!=null){
-            
-            aux = aux.getNext();
+        if(empty()){System.out.println("nothing to sort here");;}
+        else{
+                Cell aux = first;
+            while(aux!=null){
+                aux = aux.getNext();
+            }
         }
         
     }
