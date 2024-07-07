@@ -18,5 +18,9 @@ public class Cell{
         this.next = next;
     }
 
+    public void setNext(){
+        this.next = null;
+    }
+
     
 }

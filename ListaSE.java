@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ListaSE{
     Cell first;
@@ -35,22 +35,40 @@ public class ListaSE{
         }
     }
 
-    public void insertInMiddle(Cell c) {
+    public void insertInMiddle(Cell c) { /*exercise 1*/
         if(empty()){first = c;}
         else{
-            Cell aux = first;
+            insertAtEnd(c);
+            int[] arr = sort();
+            while(!empty()){
+                removeAtEnd();
+            }
+            for(int i = 0; i<arr.length; i++){
+                Cell c1;
+                insertAtEnd(c1 = new Cell(arr[i]));
+            }
         }
     }
 
-    public void sort(){
-        if(empty()){System.out.println("nothing to sort here");;}
+    private int[] sort(){
+        int[] sortArr = new int[0];
+        int count = 1;
+        if(empty()){System.out.println("nothing to sort here");}
         else{
-                Cell aux = first;
-            while(aux!=null){
+            Cell aux = first;
+            while(aux.getNext()!=null){
+                aux = aux.getNext();
+                count+=1;
+            }
+            sortArr = new int[count];
+            aux = first;
+            for(int i=0; i<sortArr.length; i++){
+                sortArr[i] = aux.getValue();
                 aux = aux.getNext();
             }
+            Arrays.sort(sortArr);
         }
-        
+        return sortArr;
     }
 
     public Cell search(int v) {
@@ -88,11 +106,35 @@ public class ListaSE{
                     ant = current;
                     current = current.getNext();
                 }
-                ant.getNext();
+                ant.next = null;
             }else{
                 current = first;
                 first = null;
             }
+            return true;
+        }
+    }
+
+    public boolean removeAtEnd2(){ /*exercise 2: remove w/ one aux reference*/
+        if(empty()){return false;}
+        else{
+            Cell aux = first;
+            while(aux.getNext().getNext()!=null){
+                aux = aux.getNext();
+            }
+            aux.setNext(); /*sets next to null*/
+            return true;
+        }
+    }
+
+    public boolean removeSpecific(int v){ /*exercise 3*/
+        if(empty()){return false;}
+        else{
+            Cell aux = first;
+            while(aux.getNext().getValue()!=v){
+                aux = aux.getNext();
+            }
+            aux.setNext(aux.getNext().getNext());
             return true;
         }
     }
