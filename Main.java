@@ -12,28 +12,13 @@ public class Main{
 
         list1.print();
 
-        Cell cell4 = new Cell(5);
-        list1.insertAtEnd(cell4);
         System.out.println();
-        list1.print();
-        
+
         Cell cell5 = new Cell(15);
-        list1.insertInMiddle(cell5);
-
-        System.out.println();
-
+        list1.insertAtEnd(cell5);
         list1.print();
 
-        list1.removeSpecific(20);
-
-        System.out.println();
-        list1.print();
-
-        list1.removeAtEnd2();
-        System.out.println();
-        list1.print();
-
-        list1.removeAtEnd2();
+        list1.sort();
         System.out.println();
         list1.print();
 

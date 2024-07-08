@@ -35,7 +35,49 @@ public class ListaSE{
         }
     }
 
-    public void insertInMiddle(Cell c) { /*exercise 1*/
+    public void insertInMiddle(Cell c){
+        if(empty()){first = c;}
+        else{
+            Cell aux = first;
+            
+        }
+    }
+
+    public boolean sort(){
+        if(empty()){return false;}
+        else{
+            Cell aux = first;
+            Cell aux2 = aux.getNext();
+            ListaSE list2 = new ListaSE();
+            while(aux.getNext()!=null){ 
+                /*if(aux.getValue() > aux2.getValue()){
+                    System.out.println("true");
+                    Cell aux3 = aux2;
+                    aux2.setNext(aux);
+                    aux.setNext(aux3.getNext());
+                    aux = aux.getNext();
+                }else{
+                    aux=aux.getNext();
+                }*/
+            }
+            return true;
+        }
+    }
+
+    public int length(){
+        if(empty()){return 0;}
+        else{
+            Cell aux = first;
+            int cont = 1;
+            while(aux!=null){
+                aux = aux.getNext();
+                cont++;
+            }
+            return cont;
+        }
+    }
+
+    /*public void insertInMiddle(Cell c) { //exercise 1
         if(empty()){first = c;}
         else{
             insertAtEnd(c);
@@ -48,9 +90,9 @@ public class ListaSE{
                 insertAtEnd(c1 = new Cell(arr[i]));
             }
         }
-    }
-
-    private int[] sort(){
+    }*/
+    
+    /*private int[] sort(){
         int[] sortArr = new int[0];
         int count = 1;
         if(empty()){System.out.println("nothing to sort here");}
@@ -69,7 +111,7 @@ public class ListaSE{
             Arrays.sort(sortArr);
         }
         return sortArr;
-    }
+    }*/
 
     public Cell search(int v) {
         if(empty()){return null;}
