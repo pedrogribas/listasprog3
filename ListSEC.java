@@ -31,14 +31,16 @@ public class ListSEC{
         if(empty()){return false;}
         else{
             Cell aux = head.getNext();
-            while(aux.getNext().getNext()!=head){
-                aux = aux.getNext();
-            }
-            Cell aux2 = aux.getNext();
-            aux.setNext(head);
-            aux2.setNext();
-            return true;
-        }        
+            if(aux.getNext()!=head){
+                while(aux.getNext().getNext()!=head){
+                    aux = aux.getNext();
+                }
+                Cell aux2 = aux.getNext();
+                aux.setNext(head);
+                aux2.setNext();
+                return true;
+            }   
+            }     
     }
 
     public boolean removeAtStart() {
