@@ -38,8 +38,8 @@ public class ListSEC{
                 Cell aux2 = aux.getNext();
                 aux.setNext(head);
                 aux2.setNext();
-                return true;
-            }   
+            } 
+            return true;
             }     
     }
 

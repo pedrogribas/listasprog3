@@ -1,6 +1,6 @@
 public class Cell{
     int value;
-    Cell next;
+    Cell next = null;
 
     public Cell(int value) {
         this.value = value;

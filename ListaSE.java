@@ -34,29 +34,59 @@ public class ListaSE{
     }
 
     public void insertOrdered(Cell c){
-        if(empty()){first = c;}
+        /* WRONG
+        if(empty()){ first = c; }
+
+        else{ 
+            Cell aux = first; 
+            Cell aux2 = first.next;  
+            if(aux2 == null){ 
+                if(aux.value>c.value){insertAtStart(c);} 
+                else{insertAtEnd(c);} 
+            } // condição 1 e 2
+
+            while(aux2.next != null && aux2.value <  c.value){  
+                aux = aux2;  
+                aux2 = aux2.next; 
+            }
+
+            if(aux2.next == null && aux2.value<c.value){
+                insertAtEnd(c); 
+            } 
+            else{ 
+                aux.next = c; 
+                c.next = aux2; 
+            }
+        }
+            */
+           
+        if(empty()){first = c;} //empty list
+
         else{
             Cell aux = first;
-            Cell aux2 = aux.getNext();
-            if(aux2==null){
-                if(aux.getValue()>c.getValue()){
-                    insertAtStart(c);
-                }else{
-                    insertAtEnd(c);
-                }
-            }else{
-                while(aux2.getNext() != null && aux2.getValue() < c.getValue()){
+            Cell aux2 = first.getNext();
+
+            if(aux.getValue()>=c.getValue()){insertAtStart(c);} //accepts duplicate entries
+
+            /*list w/ one element */
+            else if(aux2==null){ 
+                insertAtEnd(c);
+            }
+            
+            /*list w/ 2+ elements */
+            else{
+                while(aux.getNext().getNext()!=null && aux.getValue()<c.getValue() && aux2.getValue()<c.getValue()){
                     aux = aux2;
-                    aux2.setNext(c);
+                    aux2 = aux.getNext();
                 }
                 if(aux2.getNext()==null && aux2.getValue()<c.getValue()){
-                    aux2.setNext(c);
-                    c.setNext(); //null
+                    insertAtEnd(c);
                 }else{
                     aux.setNext(c);
                     c.setNext(aux2);
                 }
             }
+            
         }
     }
 
