@@ -34,32 +34,6 @@ public class ListaSE{
     }
 
     public void insertOrdered(Cell c){
-        /* WRONG
-        if(empty()){ first = c; }
-
-        else{ 
-            Cell aux = first; 
-            Cell aux2 = first.next;  
-            if(aux2 == null){ 
-                if(aux.value>c.value){insertAtStart(c);} 
-                else{insertAtEnd(c);} 
-            } // condição 1 e 2
-
-            while(aux2.next != null && aux2.value <  c.value){  
-                aux = aux2;  
-                aux2 = aux2.next; 
-            }
-
-            if(aux2.next == null && aux2.value<c.value){
-                insertAtEnd(c); 
-            } 
-            else{ 
-                aux.next = c; 
-                c.next = aux2; 
-            }
-        }
-            */
-           
         if(empty()){first = c;} //empty list
 
         else{

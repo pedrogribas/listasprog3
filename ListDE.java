@@ -64,7 +64,23 @@ public class ListDE {
             while(aux.getNext()!=null){
                 aux = aux.getNext();
             }
-            
+            if(aux.getPrior()!=null){
+                aux.getPrior().setNext(null);
+            }
+            aux.setPrior(null);
+            return true;
         }
     }
+
+    public void print(){
+        Cell2 aux = first;
+        while(aux!=null){
+            System.out.println("Value = "+aux.getValue());
+            aux = aux.getNext();
+        }
+    }
+
+    //to-do: lista invertida
+
+    
 }
