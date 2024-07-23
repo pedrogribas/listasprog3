@@ -33,5 +33,47 @@ public class ListDEC {
         aux.setPrior(c);
     }
 
-    
+    public Cell2 search(int v){
+        if(empty()){return null;}
+
+        else{
+            Cell2 aux = head.getNext();
+            while (aux!=head&&aux.getValue()!=v) {
+                aux = aux.getNext();
+            }
+            return aux;
+        }
+    }
+
+    public boolean removeAtStart(){
+        if(empty()){ return false;}
+        else{
+            Cell2 aux = head.getNext();
+            head.setNext(aux.getNext());
+            aux.getNext().setPrior(head);
+            aux.setNext(); //null
+            aux.setPrior(null);
+            return true;
+        }
+    }
+
+    public boolean removeAtEnd() {
+        if(empty()){ return false;}
+        else{
+            Cell2 aux = head.getPrior();
+            head.setPrior(aux.getPrior());
+            aux.getPrior().setNext(head);
+            aux.setNext(null);
+            aux.setPrior(null);
+            return true;
+        }
+    }
+
+    public void print(){
+        Cell2 aux = head;
+        while(aux!=null){
+            System.out.println("Value = "+aux.getValue());
+            aux = aux.getNext();
+        }
+    }
 }
