@@ -1,8 +1,8 @@
-public class stack{
+public class Stack{
     private Cell top;
     private int quant;
 
-    public stack() {
+    public Stack() {
         this.top = null;
         this.quant = 0;
     }
