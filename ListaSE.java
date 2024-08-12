@@ -22,6 +22,7 @@ public class ListaSE{
         }
     }
 
+
     public void insertAtEnd(Cell c){
         if(empty()){first = c;}
         else{
@@ -32,35 +33,24 @@ public class ListaSE{
             aux.setNext(c);
         }
     }
-
-    public void insertOrdered(Cell c){
-        if(empty()){first = c;} //empty list
-
-        else{
+    
+    public void insertOrdered(Cell c) {
+        if (empty()) 
+            first = c;
+         else {
             Cell aux = first;
-            Cell aux2 = first.getNext();
-
-            if(aux.getValue()>=c.getValue()){insertAtStart(c);} //accepts duplicate entries
-
-            /*list w/ one element */
-            else if(aux2==null){ 
-                insertAtEnd(c);
+            Cell prev = null;
+            while (aux != null && aux.getValue() < c.getValue()) {
+                prev = aux;
+                aux = aux.getNext();
             }
-            
-            /*list w/ 2+ elements */
-            else{
-                while(aux.getNext().getNext()!=null && aux.getValue()<c.getValue() && aux2.getValue()<c.getValue()){
-                    aux = aux2;
-                    aux2 = aux.getNext();
-                }
-                if(aux2.getNext()==null && aux2.getValue()<c.getValue()){
-                    insertAtEnd(c);
-                }else{
-                    aux.setNext(c);
-                    c.setNext(aux2);
-                }
+            if (prev == null) {
+                c.setNext(first);
+                first = c;
+            } else {
+                c.setNext(aux);
+                prev.setNext(c);
             }
-            
         }
     }
 
